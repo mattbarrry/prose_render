@@ -8,84 +8,8 @@ module ProseRender
 
         raise ProseRender::InvalidDocumentError unless hash_doc[:type] == "doc"
 
-        content_from_blocks hash_doc[:content]
+        ProseRender::Components::Base.new.parse_prose_content hash_doc[:content]
       end
     end
   end
 end
-
-
-# {
-#   "type": "doc",
-#   "content": [
-#     {
-#       "type": "paragraph",
-#       "content": [
-#         {
-#           "type": "text",
-#           "text": "This is an example of a ProseMirror document."
-#         }
-#       ]
-#     },
-#     {
-#       "type": "paragraph",
-#       "content": [
-#         {
-#           "type": "text",
-#           "text": "It supports multiple nodes and marks."
-#         },
-#         {
-#           "type": "text",
-#           "marks": [
-#             {
-#               "type": "strong"
-#             }
-#           ],
-#           "text": " Bold text example."
-#         },
-#         {
-#           "type": "text",
-#           "marks": [
-#             {
-#               "type": "em"
-#             }
-#           ],
-#           "text": " Italic text example."
-#         }
-#       ]
-#     },
-#     {
-#       "type": "bullet_list",
-#       "content": [
-#         {
-#           "type": "list_item",
-#           "content": [
-#             {
-#               "type": "paragraph",
-#               "content": [
-#                 {
-#                   "type": "text",
-#                   "text": "First bullet point"
-#                 }
-#               ]
-#             }
-#           ]
-#         },
-#         {
-#           "type": "list_item",
-#           "content": [
-#             {
-#               "type": "paragraph",
-#               "content": [
-#                 {
-#                   "type": "text",
-#                   "text": "Second bullet point"
-#                 }
-#               ]
-#             }
-#           ]
-#         }
-#       ]
-#     }
-#   ]
-# }

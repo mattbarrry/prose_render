@@ -4,6 +4,14 @@ module ProseRender
   module Components
     module Marks
       class Bold < ProseRender::Base
+        def initialize(mark:, **opts)
+          @mark = mark
+          @opts = opts
+        end
+
+        def call
+          content_tag :strong, content
+        end
       end
     end
   end

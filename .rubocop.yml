@@ -4,6 +4,9 @@ AllCops:
 Documentation:
   Enabled: false
 
+Line/MissingSuper:
+  Enabled: false
+
 Style/StringLiterals:
   EnforcedStyle: double_quotes
 
