@@ -3,7 +3,7 @@
 module ProseRender
   module Components
     module Marks
-      class Bold < ProseRender::Base
+      class Bold < ProseRender::Components::Base
         def initialize(mark:, **opts)
           @mark = mark
           @opts = opts

@@ -2,7 +2,7 @@
 
 module ProseRender
   module Components
-    class ComponentMap
+    module ComponentMap
       DEFAULT_NODE = Nodes::Paragraph
       NODE_MAPPINGS = {
         paragraph: Nodes::Paragraph
@@ -10,7 +10,7 @@ module ProseRender
 
       DEFAULT_MARK = Marks::Bold
       MARK_MAPPINGS = {
-        bold: Marks::Bold
+        strong: Marks::Bold
       }.freeze
     end
   end

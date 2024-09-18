@@ -1,10 +1,13 @@
 # frozen_string_literal: true
 
+require "view_component"
+
 module ProseRender
   module Components
     class Base < ViewComponent::Base
       def parse_prose_content(contents)
-        return "&nbsp;".html_safe if contents.nil?
+        puts contents
+        return "&nbsp;" if contents.nil?
 
         contents.map do |content|
           content_to_html(content)
@@ -12,13 +15,13 @@ module ProseRender
       end
 
       def content_to_html(content)
-        content[:type] == "text" ? nodes_to_html(content) : text_to_html(content)
+        content[:type] == "text" ? text_to_html(content) : nodes_to_html(content)
       end
 
       def nodes_to_html(node)
         # TODO: Hook into custom node mappings
-        component = ComponentMap::NODE_MAPPINGS[node[:type]] || ComponentMap::DEFAULT_NODE
-        render component.new(node: node, **@opts)
+        component = ComponentMap::NODE_MAPPINGS[node[:type].to_sym] || ComponentMap::DEFAULT_NODE
+        ApplicationController.render component.new(node: node, **opts)
       end
 
       def text_to_html(text)
@@ -26,9 +29,13 @@ module ProseRender
 
         marks = text[:marks]
         marks.reduce(text[:text]) do |memo, mark|
-          component = ComponentMap::MARK_MAPPINGS[mark[:type]] || ComponentMap::DEFAULT_MARK
-          render component.new(mark: mark, **@opts).with_content(memo)
+          component = ComponentMap::MARK_MAPPINGS[mark[:type].to_sym] || ComponentMap::DEFAULT_MARK
+          ApplicationController.render component.new(mark: mark, **opts).with_content(memo)
         end
+      end
+
+      def opts
+        @opts ||= {}
       end
     end
   end
