@@ -9,14 +9,10 @@ module ProseRender
         return "&nbsp;" if contents.nil?
 
         contents_for_render = contents.map do |content|
-          content_to_html(content)
+          nodes_to_html(content)
         end.join
 
         ActionView::OutputBuffer.new contents_for_render
-      end
-
-      def content_to_html(content)
-        content[:type] == "text" ? text_to_html(content) : nodes_to_html(content)
       end
 
       def nodes_to_html(node)
@@ -25,7 +21,7 @@ module ProseRender
         ApplicationController.render component.new(node: node, **opts)
       end
 
-      def text_to_html(text)
+      def marks_to_html(text)
         return text[:text] unless text[:marks].present?
 
         marks = text[:marks]

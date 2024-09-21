@@ -5,7 +5,8 @@ module ProseRender
     module ComponentMap
       DEFAULT_NODE = Nodes::Paragraph
       NODE_MAPPINGS = {
-        paragraph: Nodes::Paragraph
+        paragraph: Nodes::Paragraph,
+        text: Nodes::Text
       }.freeze
 
       DEFAULT_MARK = Marks::Bold
