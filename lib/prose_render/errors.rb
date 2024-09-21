@@ -7,8 +7,8 @@ module ProseRender
     end
   end
 
-  class InvalidDocumentError < BaseError
-    MESSAGE = "An invalid Prose Mirror JSON document was passed to the document renderer.\n\n" \
-      "Please ensure you're passing a top level document, with a type of \"doc\"."
+  class NoContentError < BaseError
+    MESSAGE = "You have passed in an invalid Prose Mirror document, missing the content attribute.\n\n" \
+      "Please ensure you're passing in a valid Prose Mirror document, with a content attribute."
   end
 end

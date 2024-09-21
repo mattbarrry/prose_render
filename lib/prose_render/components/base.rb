@@ -6,12 +6,13 @@ module ProseRender
   module Components
     class Base < ViewComponent::Base
       def parse_prose_content(contents)
-        puts contents
         return "&nbsp;" if contents.nil?
 
-        contents.map do |content|
+        contents_for_render = contents.map do |content|
           content_to_html(content)
-        end.join.html_safe
+        end.join
+
+        ActionView::OutputBuffer.new contents_for_render
       end
 
       def content_to_html(content)
