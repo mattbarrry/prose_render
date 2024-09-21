@@ -10,6 +10,9 @@ module ProseRender
 
       DEFAULT_MARK = Marks::Bold
       MARK_MAPPINGS = {
+        code: Marks::Code,
+        em: Marks::Italic,
+        link: Marks::Link,
         strong: Marks::Bold
       }.freeze
     end
