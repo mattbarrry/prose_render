@@ -46,6 +46,7 @@ ProseRender::Document.render(prose_json)
 - [ ] Support TipTap nodes and marks
 - [ ] Entry point to define custom renderers
 - [ ] Generators for blueprinting custom renders (e.g., for TipTap nodes)
+- [ ] Support nesting passthrough via opts
 
 ## Contributing
 
