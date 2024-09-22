@@ -3,16 +3,15 @@
 module ProseRender
   module Components
     module Nodes
-      class Paragraph < ProseRender::Components::Base
+      class Blockquote < ProseRender::Components::Base
         def initialize(node:, **opts)
           @node = node
           @opts = opts
-          @nested_content = parse_prose_content(@node[:content])
         end
 
         def call
-          content_tag :p do
-            parse_prose_content(@node[:content])
+          content_tag :blockquote do
+            parse_prose_content @node[:content]
           end
         end
       end

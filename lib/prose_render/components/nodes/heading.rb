@@ -3,17 +3,26 @@
 module ProseRender
   module Components
     module Nodes
-      class Paragraph < ProseRender::Components::Base
+      class Heading < ProseRender::Components::Base
         def initialize(node:, **opts)
           @node = node
           @opts = opts
-          @nested_content = parse_prose_content(@node[:content])
         end
 
         def call
-          content_tag :p do
-            parse_prose_content(@node[:content])
+          content_tag tag do
+            content
           end
+        end
+
+        private
+
+        def tag
+          "h#{level}".to_sym
+        end
+
+        def level
+          @node[:attrs][:level]
         end
       end
     end
