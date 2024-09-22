@@ -6,6 +6,7 @@ ENV["RAILS_ENV"] = "test"
 require_relative "../test/dummy/config/environment"
 
 require "rails/test_help"
+require "view_component/test_helpers"
 
 # Load fixtures from the engine
 if ActiveSupport::TestCase.respond_to?(:fixture_paths=)
