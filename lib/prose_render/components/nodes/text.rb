@@ -10,7 +10,7 @@ module ProseRender
         end
 
         def call
-          marks_to_html(@node)
+          marks_to_html(@node).html_safe
         end
       end
     end

@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require "action_controller"
 require "view_component"
 
 module ProseRender
@@ -18,7 +19,7 @@ module ProseRender
       def nodes_to_html(node)
         # TODO: Hook into custom node mappings
         component = ComponentMap::NODE_MAPPINGS[node[:type].to_sym] || ComponentMap::DEFAULT_NODE
-        ApplicationController.render(component.new(node: node, **opts), layout: false)
+        ActionController::Base.render(component.new(node: node, **opts), layout: false)
       end
 
       def marks_to_html(text)
@@ -27,7 +28,7 @@ module ProseRender
         marks = text[:marks]
         marks.reduce(text[:text]) do |memo, mark|
           component = ComponentMap::MARK_MAPPINGS[mark[:type].to_sym] || ComponentMap::DEFAULT_MARK
-          ApplicationController.render(component.new(mark: mark, **opts).with_content(memo), layout: false)
+          ActionController::Base.render(component.new(mark: mark, **opts).with_content(memo), layout: false)
         end
       end
 
