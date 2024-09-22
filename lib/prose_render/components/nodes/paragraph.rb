@@ -7,7 +7,6 @@ module ProseRender
         def initialize(node:, **opts)
           @node = node
           @opts = opts
-          @nested_content = parse_prose_content(@node[:content])
         end
 
         def call

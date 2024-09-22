@@ -11,7 +11,7 @@ module ProseRender
 
         def call
           content_tag tag do
-            content
+            parse_prose_content(@node[:content])
           end
         end
 
