@@ -10,7 +10,7 @@ module ProseRender
         end
 
         def call
-          content_tag :img, src: src, alt: alt, href: href
+          image_tag src, alt: alt, href: href
         end
 
         private
