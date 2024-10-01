@@ -18,7 +18,7 @@ module ProseRender
 
       def nodes_to_html(node)
         # TODO: Hook into custom node mappings
-        component = ComponentMap::NODE_MAPPINGS[node[:type].to_sym] || ComponentMap::DEFAULT_NODE
+        component = ProseRender.component_registry.fetch(node[:type])
         ActionController::Base.render(component.new(node: node, **opts), layout: false)
       end
 
