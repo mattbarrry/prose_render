@@ -1,10 +1,14 @@
 # frozen_string_literal: true
 
+require "json"
+
 module Components
   module Nodes
     class ParagraphTest < ViewComponent::TestCase
       def test_render_paragraph
-        render_inline(ProseRender::Components::Nodes::Paragraph.new(node: { test: "value" }))
+        node = json_node("nodes/paragraph.json")
+
+        render_inline(ProseRender::Components::Nodes::Paragraph.new(node: node))
 
         assert_component_rendered
 

@@ -5,13 +5,18 @@ ENV["RAILS_ENV"] = "test"
 
 require_relative "../test/dummy/config/environment"
 
+require "json"
 require "rails/test_help"
 require "view_component/test_helpers"
 
-# Load fixtures from the engine
-if ActiveSupport::TestCase.respond_to?(:fixture_paths=)
-  ActiveSupport::TestCase.fixture_paths = [File.expand_path("fixtures", __dir__)]
-  ActionDispatch::IntegrationTest.fixture_paths = ActiveSupport::TestCase.fixture_paths
-  ActiveSupport::TestCase.file_fixture_path = File.expand_path("fixtures", __dir__) + "/files"
-  ActiveSupport::TestCase.fixtures :all
+ActiveSupport::TestCase.file_fixture_path = "test/fixtures"
+
+class ActiveSupport::TestCase
+  self.file_fixture_path = "test/fixtures"
+
+  def json_node(filename)
+    node_json = file_fixture(filename).read
+
+    JSON.parse(node_json)
+  end
 end
