@@ -19,14 +19,13 @@ jobs:
           bundler-cache: true
 
       - name: Lint code for consistent style
-        run: bin/rubocop
+        run: bundle exec rake rubocop
 
   test:
     runs-on: ubuntu-latest
-
     steps:
       - name: Install packages
-        run: sudo apt-get update && sudo apt-get install --no-install-recommends -y google-chrome-stable curl libjemalloc2 libvips sqlite3
+        run: sudo apt-get update && sudo apt-get install --no-install-recommends -y curl libjemalloc2
 
       - name: Checkout code
         uses: actions/checkout@v4
@@ -40,12 +39,4 @@ jobs:
       - name: Run tests
         env:
           RAILS_ENV: test
-        run: rake test
-
-      - name: Keep screenshots from failed system tests
-        uses: actions/upload-artifact@v4
-        if: failure()
-        with:
-          name: screenshots
-          path: ${{ github.workspace }}/tmp/screenshots
-          if-no-files-found: ignore
+        run: bundle exec rake test
