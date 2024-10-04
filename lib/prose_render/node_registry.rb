@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module ProseRender
-  class ComponentRegistry
+  class NodeRegistry
     def initialize
       @registry = {}
     end
@@ -11,13 +11,13 @@ module ProseRender
     end
 
     def fetch(type)
-      @registry[type.to_s] || default_component
+      @registry[type.to_s].constantize || default_component
     end
 
     private
 
     def default_component
-      ProseRender::Components::Marks::Text
+      ProseRender::Components::Nodes::Text
     end
   end
 end

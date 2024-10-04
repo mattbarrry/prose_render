@@ -17,8 +17,8 @@ module ProseRender
       end
 
       def nodes_to_html(node)
-        # TODO: Hook into custom node mappings
-        component = ProseRender.component_registry.fetch(node[:type])
+        component = ProseRender.configuration.node_registry.fetch(node[:type])
+        Rails.logger.info component
         ActionController::Base.render(component.new(node: node, **opts), layout: false)
       end
 
@@ -27,7 +27,7 @@ module ProseRender
 
         marks = text[:marks]
         marks.reduce(text[:text]) do |memo, mark|
-          component = ComponentMap::MARK_MAPPINGS[mark[:type].to_sym] || ComponentMap::DEFAULT_MARK
+          component = ProseRender.configuration.mark_registry.fetch(mark[:type])
           ActionController::Base.render(component.new(mark: mark, **opts).with_content(memo), layout: false)
         end
       end

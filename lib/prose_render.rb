@@ -14,19 +14,12 @@ module ProseRender
     isolate_namespace ProseRender
   end
 
-  def self.component_registry
-    @component_registry ||= ComponentRegistry.new
-  end
+  class << self
+    attr_accessor :configuration
 
-  def self.configure
-    yield(component_registry) if block_given?
-  end
-
-  def self.setup_default_components
-    component_registry.register("paragraph", ProseRender::Components::Nodes::Paragraph)
-    component_registry.register("text", ProseRender::Components::Nodes::Text)
+    def configure
+      self.configuration ||= Configuration.new
+      yield(configuration) if block_given?
+    end
   end
 end
-
-
-ProseRender.setup_default_components
