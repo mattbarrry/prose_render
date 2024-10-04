@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 module ProseRender
+  class Error < StandardError; end
+
   class BaseError < StandardError
     def initialize
       super(self.class::MESSAGE)

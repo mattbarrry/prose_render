@@ -8,17 +8,11 @@ loader = Zeitwerk::Loader.for_gem
 loader.setup
 
 module ProseRender
-  class Error < StandardError; end
-
-  class Engine < ::Rails::Engine
-    isolate_namespace ProseRender
-  end
-
   class << self
     attr_accessor :configuration
 
     def configure
-      self.configuration ||= Configuration.new
+      self.configuration ||= Configuration::Config.new
       yield(configuration) if block_given?
     end
   end
