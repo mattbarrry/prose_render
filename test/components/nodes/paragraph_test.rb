@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "json"
+require "test/test_helper"
 
 module Components
   module Nodes
