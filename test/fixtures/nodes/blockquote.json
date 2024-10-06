@@ -1,0 +1,14 @@
+{
+  "type": "blockquote",
+  "content": [
+    {
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "This is a blockquote example."
+        }
+      ]
+    }
+  ]
+}

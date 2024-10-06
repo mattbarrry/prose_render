@@ -5,11 +5,10 @@ ENV["RAILS_ENV"] = "test"
 
 require_relative "../test/dummy/config/environment"
 
+require "byebug"
 require "json"
 require "rails/test_help"
 require "view_component/test_helpers"
-
-ActiveSupport::TestCase.file_fixture_path = "test/fixtures"
 
 class ActiveSupport::TestCase
   self.file_fixture_path = "test/fixtures"
@@ -17,6 +16,6 @@ class ActiveSupport::TestCase
   def json_node(filename)
     node_json = file_fixture(filename).read
 
-    JSON.parse(node_json)
+    JSON.parse(node_json, symbolize_names: true)
   end
 end

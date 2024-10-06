@@ -7,6 +7,8 @@ require "zeitwerk"
 loader = Zeitwerk::Loader.for_gem
 loader.setup
 
+require_relative "prose_render/railtie"
+
 module ProseRender
   class << self
     attr_accessor :configuration

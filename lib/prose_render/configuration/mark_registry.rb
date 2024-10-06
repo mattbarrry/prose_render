@@ -5,11 +5,11 @@ module ProseRender
     class MarkRegistry
       def initialize
         @registry = {}
+        load_defaults
       end
 
       def register(type, component_class)
         @registry[type.to_s] = component_class
-        load_defaults
       end
 
       def fetch(type)

@@ -1,0 +1,9 @@
+{
+  "type": "code_block",
+  "content": [
+    {
+      "type": "text",
+      "text": "def hello_world\n  puts 'Hello, world!'\nend"
+    }
+  ]
+}

@@ -8,7 +8,9 @@ module ProseRender
 
         raise ProseRender::Errors::NoContentError unless hash_doc.key? :content
 
-        ProseRender::Components::Base.new.parse_prose_content(hash_doc[:content])
+        nodes = hash_doc[:type] == "doc" ? hash_doc[:content] : [hash_doc]
+
+        ProseRender::Components::Base.new.parse_prose_content(nodes)
       end
     end
   end

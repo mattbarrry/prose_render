@@ -8,3 +8,5 @@
 /tmp/
 .idea/
 /test/dummy/log/test.log
+
+.byebug_history
