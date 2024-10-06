@@ -3,14 +3,14 @@
 module ProseRender
   module Components
     module Nodes
-      class ListItem < ProseRender::Components::Base
+      class OrderedList < ProseRender::Components::Base
         def initialize(node:, **opts)
           @node = node
           @opts = opts
         end
 
         def call
-          content_tag :li do
+          content_tag :ol do
             parse_prose_content(@node[:content])
           end
         end
