@@ -34,6 +34,7 @@ module ProseRender
         register_node("heading", "ProseRender::Components::Nodes::Heading")
         register_node("horizontal_rule", "ProseRender::Components::Nodes::HorizontalRule")
         register_node("image", "ProseRender::Components::Nodes::Image")
+        register_node("listItem", "ProseRender::Components::Nodes::ListItem")
         register_node("paragraph", "ProseRender::Components::Nodes::Paragraph")
         register_node("text", "ProseRender::Components::Nodes::Text")
       end
