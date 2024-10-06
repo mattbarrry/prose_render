@@ -9,6 +9,7 @@ module ProseRender
 
       def register(type, component_class)
         @registry[type.to_s] = component_class
+        load_defaults
       end
 
       def fetch(type)
@@ -16,6 +17,13 @@ module ProseRender
       end
 
       private
+
+      def load_defaults
+        register("code", "ProseRender::Components::Marks::Code")
+        register("em", "ProseRender::Components::Marks::Italic")
+        register("link", "ProseRender::Components::Marks::Link")
+        register("strong", "ProseRender::Components::Marks::Bold")
+      end
 
       def default_component
         ProseRender::Components::Marks::Bold
