@@ -40,13 +40,50 @@ prose_json = {
 ProseRender::Document.render(prose_json)
 ```
 
+## Custom Components
+
+ProseRender supports registering your own components to use with the engine. This can be used to either override a current node/mark, or to extend based on any custom Prose Mirror node or mark you have.
+
+First, create your custom component. You can inherit from the `ProseRender::Components::Base` class in order to easily render nested content. A custom `paragraph` node might look like this:
+
+```ruby
+# app/components/my_custom_paragraph.rb
+
+class MyCustomParagraph < ProseRender::Components::Base
+  def initialize(node:, **opts)
+    @node = node
+    @opts = opts
+  end
+  
+  def call
+    content_tag :p, class: 'my-paragraph-custom-class' do
+      parse_prose_content(@node[:content])
+    end
+  end
+end
+```
+
+Then, register the node type, and the component you want mapped to that type in the configure block in an initializer:
+
+```ruby
+# config/initializers/prose_render.rb
+
+ProseRender.configure do |config|
+  config.register_node('paragraph', "MyCustomParagraph")
+end
+
+```
+
+When you restart your Rails server, any `paragraph` nodes will be rendered with your custom component. Marks can be done the same, using the `register_mark` method.
+
 ## TODO
 
-- [ ] Support for ProseMirror nodes and marks
+- [ ] Support for all ProseMirror nodes and marks (including tables)
 - [ ] Support TipTap nodes and marks
 - [x] Entry point to define custom renderers
 - [ ] Generators for blueprinting custom renders (e.g., for TipTap nodes)
 - [ ] Support nesting passthrough via opts
+- [ ] Some type of plugin system for CSS frameworks, like Bootstrap, Tailwind, Bulma?
 
 ## Contributing
 
