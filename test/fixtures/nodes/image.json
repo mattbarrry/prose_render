@@ -1,0 +1,8 @@
+{
+  "type": "image",
+  "attrs": {
+    "src": "https://example.com/image.jpg",
+    "alt": "An example image",
+    "title": "Example Image"
+  }
+}

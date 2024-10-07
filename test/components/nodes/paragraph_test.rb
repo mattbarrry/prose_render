@@ -12,7 +12,7 @@ module Components
 
         assert_component_rendered
 
-        assert_selector("p")
+        assert_selector "p"
       end
     end
   end

@@ -11,7 +11,7 @@ module Components
 
         assert_component_rendered
 
-        assert_selector("ol > li > p")
+        assert_selector "ol > li > p", count: 3
       end
     end
   end

@@ -20,11 +20,11 @@ module ProseRender
         end
 
         def alt
-          @node[:attrs][:alt]
+          @node[:attrs][:alt] || ""
         end
 
         def href
-          @node[:attrs][:href]
+          @node[:attrs][:href] || ""
         end
       end
     end
