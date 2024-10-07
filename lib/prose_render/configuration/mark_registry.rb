@@ -13,16 +13,16 @@ module ProseRender
       end
 
       def fetch(type)
-        @registry[type.to_s].constantize || default_component
+        @registry[type.to_s]&.constantize || default_component
       end
 
       private
 
       def load_defaults
         register("code", "ProseRender::Components::Marks::Code")
-        register("em", "ProseRender::Components::Marks::Italic")
+        register("italic", "ProseRender::Components::Marks::Italic")
         register("link", "ProseRender::Components::Marks::Link")
-        register("strong", "ProseRender::Components::Marks::Bold")
+        register("bold", "ProseRender::Components::Marks::Bold")
       end
 
       def default_component

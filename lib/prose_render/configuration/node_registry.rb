@@ -13,7 +13,7 @@ module ProseRender
       end
 
       def fetch(type)
-        @registry[type.to_s].constantize || default_component
+        @registry[type.to_s]&.constantize || default_component
       end
 
       private

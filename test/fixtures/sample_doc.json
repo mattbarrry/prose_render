@@ -1,0 +1,100 @@
+{
+  "type": "doc",
+  "content": [
+    {
+      "type": "heading",
+      "attrs": { "level": 1 },
+      "content": [
+        {
+          "type": "text",
+          "text": "ProseMirror Example Document"
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "This is a sample paragraph that demonstrates "
+        },
+        {
+          "type": "text",
+          "text": "bold text",
+          "marks": [{ "type": "bold" }]
+        },
+        {
+          "type": "text",
+          "text": ", "
+        },
+        {
+          "type": "text",
+          "text": "italic text",
+          "marks": [{ "type": "italic" }]
+        },
+        {
+          "type": "text",
+          "text": ", and "
+        },
+        {
+          "type": "text",
+          "text": "inline code",
+          "marks": [{ "type": "code" }]
+        },
+        {
+          "type": "text",
+          "text": ". Here’s a link to "
+        },
+        {
+          "type": "text",
+          "text": "ProseMirror",
+          "marks": [
+            {
+              "type": "link",
+              "attrs": {
+                "href": "https://prosemirror.net",
+                "title": "ProseMirror Website"
+              }
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "text": "."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Another paragraph with some text. "
+        },
+        {
+          "type": "text",
+          "text": "Here’s some italic text again.",
+          "marks": [{ "type": "italic" }]
+        }
+      ]
+    },
+    {
+      "type": "code_block",
+      "content": [
+        {
+          "type": "text",
+          "text": "console.log('Hello, ProseMirror!');"
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "This concludes our example document."
+        }
+      ]
+    }
+  ]
+}
