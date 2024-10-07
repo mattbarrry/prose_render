@@ -1,0 +1,7 @@
+{
+  "type": "link",
+  "attrs": {
+    "href": "https://example.org",
+    "title": "Link title."
+  }
+}
