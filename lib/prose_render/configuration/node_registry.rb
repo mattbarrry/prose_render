@@ -35,6 +35,10 @@ module ProseRender
         register("listItem", "ProseRender::Components::Nodes::ListItem")
         register("orderedList", "ProseRender::Components::Nodes::OrderedList")
         register("paragraph", "ProseRender::Components::Nodes::Paragraph")
+        register("table", "ProseRender::Components::Nodes::Table")
+        register("table_row", "ProseRender::Components::Nodes::Tables::Row")
+        register("table_header", "ProseRender::Components::Nodes::Tables::Cell")
+        register("table_cell", "ProseRender::Components::Nodes::Tables::Cell")
         register("text", "ProseRender::Components::Nodes::Text")
       end
       # rubocop:enable Metrics/MethodLength
@@ -46,6 +50,9 @@ module ProseRender
         register("codeBlock", "ProseRender::Components::Nodes::Code")
         register("hardBreak", "ProseRender::Components::Nodes::HardBreak")
         register("horizontalRule", "ProseRender::Components::Nodes::HorizontalRule")
+        register("tableRow", "ProseRender::Components::Nodes::Tables::Row")
+        register("tableHeader", "ProseRender::Components::Nodes::Tables::Cell")
+        register("tableCell", "ProseRender::Components::Nodes::Tables::Cell")
       end
     end
   end
