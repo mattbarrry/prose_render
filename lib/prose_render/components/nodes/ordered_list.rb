@@ -10,7 +10,7 @@ module ProseRender
         end
 
         def call
-          content_tag :ol do
+          content_tag :ol, start: @node[:attrs][:order] do
             parse_prose_content(@node[:content])
           end
         end

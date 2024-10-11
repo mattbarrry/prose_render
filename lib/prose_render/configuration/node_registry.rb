@@ -5,7 +5,8 @@ module ProseRender
     class NodeRegistry
       def initialize
         @registry = {}
-        load_defaults
+        load_prose_registry
+        load_tiptap_registry
       end
 
       def register(type, component_class)
@@ -18,8 +19,12 @@ module ProseRender
 
       private
 
+      def default_component
+        ProseRender::Components::Nodes::Text
+      end
+
       # rubocop:disable Metrics/MethodLength
-      def load_defaults
+      def load_prose_registry
         register("blockquote", "ProseRender::Components::Nodes::Blockquote")
         register("bulletList", "ProseRender::Components::Nodes::BulletList")
         register("code_block", "ProseRender::Components::Nodes::Code")
@@ -34,8 +39,13 @@ module ProseRender
       end
       # rubocop:enable Metrics/MethodLength
 
-      def default_component
-        ProseRender::Components::Nodes::Text
+      # TipTap has different types for the same block in some instances. For example,
+      # ProseMirror uses code_block, whereas TipTap uses codeBlock. There are also extended
+      # node types beyond Prose defaults.
+      def load_tiptap_registry
+        register("codeBlock", "ProseRender::Components::Nodes::Code")
+        register("hardBreak", "ProseRender::Components::Nodes::HardBreak")
+        register("horizontalRule", "ProseRender::Components::Nodes::HorizontalRule")
       end
     end
   end

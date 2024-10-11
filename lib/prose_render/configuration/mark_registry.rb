@@ -5,7 +5,7 @@ module ProseRender
     class MarkRegistry
       def initialize
         @registry = {}
-        load_defaults
+        load_prose_registry
       end
 
       def register(type, component_class)
@@ -18,15 +18,15 @@ module ProseRender
 
       private
 
-      def load_defaults
+      def default_component
+        ProseRender::Components::Marks::Bold
+      end
+
+      def load_prose_registry
         register("code", "ProseRender::Components::Marks::Code")
         register("italic", "ProseRender::Components::Marks::Italic")
         register("link", "ProseRender::Components::Marks::Link")
         register("bold", "ProseRender::Components::Marks::Bold")
-      end
-
-      def default_component
-        ProseRender::Components::Marks::Bold
       end
     end
   end
