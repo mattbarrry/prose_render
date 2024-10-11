@@ -78,9 +78,9 @@ When you restart your Rails server, any `paragraph` nodes will be rendered with 
 
 ## TODO
 
-- [ ] Support for all ProseMirror nodes and marks (including tables)
-- [ ] Support TipTap nodes and marks
+- [x] Support for all ProseMirror nodes and marks (including tables)
 - [x] Entry point to define custom renderers
+- [ ] Support TipTap nodes and marks (using custom nodes with different type names as well as extensions provided by tiptap)
 - [ ] Generators for blueprinting custom renders (e.g., for TipTap nodes)
 - [ ] Support nesting passthrough via opts
 - [ ] Some type of plugin system for CSS frameworks, like Bootstrap, Tailwind, Bulma?
