@@ -23,10 +23,11 @@ module ProseRender
       end
 
       def load_prose_registry
+        register("bold", "ProseRender::Components::Marks::Bold")
         register("code", "ProseRender::Components::Marks::Code")
         register("italic", "ProseRender::Components::Marks::Italic")
         register("link", "ProseRender::Components::Marks::Link")
-        register("bold", "ProseRender::Components::Marks::Bold")
+        register("strike", "ProseRender::Components::Marks::Strike")
       end
     end
   end
