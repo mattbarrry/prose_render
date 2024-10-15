@@ -1,0 +1,8 @@
+{
+  "type": "textStyle",
+  "attrs": {
+    "backgroundColor": "#000000",
+    "fontSize": "14px",
+    "fontWeight": "bold"
+  }
+}

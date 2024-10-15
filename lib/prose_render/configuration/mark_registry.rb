@@ -30,6 +30,7 @@ module ProseRender
         register("strike", "ProseRender::Components::Marks::Strike")
         register("subscript", "ProseRender::Components::Marks::Subscript")
         register("superscript", "ProseRender::Components::Marks::Superscript")
+        register("textStyle", "ProseRender::Components::Marks::TextStyle")
       end
     end
   end
