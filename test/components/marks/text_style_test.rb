@@ -11,7 +11,6 @@ module Components
 
         assert_component_rendered
 
-
         assert_selector "span[style='background-color: #000000; font-size: 14px; font-weight: bold;']",
                         text: "This has style."
       end
