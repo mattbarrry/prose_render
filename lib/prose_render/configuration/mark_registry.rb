@@ -28,6 +28,8 @@ module ProseRender
         register("italic", "ProseRender::Components::Marks::Italic")
         register("link", "ProseRender::Components::Marks::Link")
         register("strike", "ProseRender::Components::Marks::Strike")
+        register("subscript", "ProseRender::Components::Marks::Subscript")
+        register("superscript", "ProseRender::Components::Marks::Superscript")
       end
     end
   end
